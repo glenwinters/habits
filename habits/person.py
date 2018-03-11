@@ -2,6 +2,7 @@ from collections import namedtuple
 
 Sleep = namedtuple('Sleep', ['start', 'end'])
 
+
 class ScoreError(Exception):
     """Error calculating score"""
 
@@ -12,7 +13,7 @@ class Person(object):
         self.sleep_history = []
         self.sleep_hours_goal = sleep_hours_goal
         self.sleep_wake_goal = sleep_wake_goal
-    
+
     def __repr__(self):
         return '<Person(name="{}")>'.format(self.name)
 
