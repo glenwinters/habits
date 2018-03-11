@@ -5,6 +5,6 @@
      - pip install pytest pytest-cov codecov
      - pip install .
   script:
-    - pytest --cov=./
+    - pytest --cov=habits tests/
   after_success:
     - codecov
