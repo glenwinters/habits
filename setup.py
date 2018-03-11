@@ -6,4 +6,4 @@ setup(name='habits',
       author='Glen Winters',
       author_email='glenwinters@gmail.com',
       packages=['habits']
-     )
+      )
