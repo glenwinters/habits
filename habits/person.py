@@ -1,6 +1,7 @@
 from collections import namedtuple
 
 Sleep = namedtuple('Sleep', ['start', 'end'])
+Food = namedtuple('Food', ['date', 'calories'])
 
 
 class ScoreError(Exception):
@@ -8,11 +9,14 @@ class ScoreError(Exception):
 
 
 class Person(object):
-    def __init__(self, name, sleep_hours_goal=None, sleep_wake_goal=None):
+    def __init__(self, name, sleep_hours_goal=None, sleep_wake_goal=None,
+                 calorie_goal=None):
         self.name = name
         self.sleep_history = []
         self.sleep_hours_goal = sleep_hours_goal
         self.sleep_wake_goal = sleep_wake_goal
+        self.food_history = []
+        self.calorie_goal = calorie_goal
 
     def __repr__(self):
         return '<Person(name="{}")>'.format(self.name)
@@ -38,3 +42,19 @@ class Person(object):
             if sleep.end.time() <= self.sleep_wake_goal:
                 wake_score += 1
         return hours_score + wake_score
+
+    def score_calories(self):
+        """Scores last 7 days of calorie history out of 7 points
+
+        1 point per day where the calorie goal was met
+        """
+        if len(self.food_history) < 7:
+            raise ScoreError('Need at least 7 days of food history')
+        elif self.calorie_goal is None:
+            raise ScoreError('Calorie goal not set')
+
+        calories_score = 0
+        for food in self.food_history[-7:]:
+            if food.calories <= self.calorie_goal:
+                calories_score += 1
+        return calories_score
