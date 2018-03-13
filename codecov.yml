@@ -1,2 +1,4 @@
 comment:
-        require_changes: yes
+    layout: "diff, flags, files, footer"
+    behavior: default
+    require_changes: yes
