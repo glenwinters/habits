@@ -7,6 +7,7 @@ from datetime import datetime, timedelta, time
 def person_with_sleep_history():
     p = Person('Glen')
     p.sleep_history.extend([
+        Sleep(datetime(2018, 2, 18, 21, 0), datetime(2018, 2, 20, 5, 0)),
         Sleep(datetime(2018, 2, 19, 22, 0), datetime(2018, 2, 20, 5, 45)),
         Sleep(datetime(2018, 2, 20, 22, 0), datetime(2018, 2, 21, 5, 30)),
         Sleep(datetime(2018, 2, 21, 23, 0), datetime(2018, 2, 22, 5, 0)),

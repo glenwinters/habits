@@ -32,7 +32,7 @@ class Person(object):
 
         hours_score = 0
         wake_score = 0
-        for sleep in self.sleep_history:
+        for sleep in self.sleep_history[-7:]:
             if sleep.end - sleep.start >= self.sleep_hours_goal:
                 hours_score += 1
             if sleep.end.time() <= self.sleep_wake_goal:
