@@ -1,1 +1,1 @@
-from habits.person import Person, Sleep, ScoreError
+from habits.person import Person, Sleep, Food, ScoreError
