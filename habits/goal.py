@@ -10,7 +10,7 @@ class SleepGoal(Goal):
     """Base sleep goal"""
     def filter_history(self, history):
         return sorted([h for h in history if isinstance(h, SleepEvent)],
-                       key=lambda x: x.start)
+                      key=lambda x: x.start)
 
 
 class WakeTimeGoal(SleepGoal):
@@ -55,7 +55,7 @@ class FoodGoal(Goal):
     """Base food goal"""
     def filter_history(self, history):
         return sorted([h for h in history if isinstance(h, FoodEvent)],
-                       key=lambda x: x.date)
+                      key=lambda x: x.date)
 
 
 class CaloriesGoal(FoodGoal):
