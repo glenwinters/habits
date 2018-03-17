@@ -12,7 +12,8 @@ class Person(object):
         return '<Person(name="{}")>'.format(self.name)
 
     def add_goal(self, goal):
-        existing_goal = [g for g in self.goals if isinstance(g, goal.__class__)]
+        existing_goal = [g for g in self.goals
+                         if isinstance(g, goal.__class__)]
         if len(existing_goal) != 0:
             raise GoalError('Goal type already exists')
         self.goals.append(goal)

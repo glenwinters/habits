@@ -7,18 +7,24 @@ from habits import SleepHoursGoal, WakeTimeGoal, CaloriesGoal
 from habits import ScoreError, GoalError
 
 
-
 @pytest.fixture()
 def person_with_history():
     p = Person('Glen')
     p.history.extend([
-        SleepEvent(datetime(2018, 2, 19, 22, 0), datetime(2018, 2, 20, 5, 45)),
-        SleepEvent(datetime(2018, 2, 20, 22, 0), datetime(2018, 2, 21, 5, 30)),
-        SleepEvent(datetime(2018, 2, 21, 23, 0), datetime(2018, 2, 22, 5, 0)),
-        SleepEvent(datetime(2018, 2, 22, 20, 30), datetime(2018, 2, 23, 5, 15)),
-        SleepEvent(datetime(2018, 2, 23, 23, 0), datetime(2018, 2, 24, 4, 30)),
-        SleepEvent(datetime(2018, 2, 24, 23, 0), datetime(2018, 2, 25, 6, 0)),
-        SleepEvent(datetime(2018, 2, 25, 22, 0), datetime(2018, 2, 26, 5, 0)),
+        SleepEvent(start=datetime(2018, 2, 19, 22, 0),
+                   end=datetime(2018, 2, 20, 5, 45)),
+        SleepEvent(start=datetime(2018, 2, 20, 22, 0),
+                   end=datetime(2018, 2, 21, 5, 30)),
+        SleepEvent(start=datetime(2018, 2, 21, 23, 0),
+                   end=datetime(2018, 2, 22, 5, 0)),
+        SleepEvent(start=datetime(2018, 2, 22, 20, 30),
+                   end=datetime(2018, 2, 23, 5, 15)),
+        SleepEvent(start=datetime(2018, 2, 23, 23, 0),
+                   end=datetime(2018, 2, 24, 4, 30)),
+        SleepEvent(start=datetime(2018, 2, 24, 23, 0),
+                   end=datetime(2018, 2, 25, 6, 0)),
+        SleepEvent(start=datetime(2018, 2, 25, 22, 0),
+                   end=datetime(2018, 2, 26, 5, 0)),
         FoodEvent(date(2018, 2, 18), 2000),
         FoodEvent(date(2018, 2, 19), 2146),
         FoodEvent(date(2018, 2, 20), 1727),
