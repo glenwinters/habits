@@ -1,4 +1,4 @@
-from habits.goal import SleepGoal
+from habits.goal import SleepGoal, FoodGoal
 from habits.exceptions import ScoreError, GoalError
 
 

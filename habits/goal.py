@@ -9,7 +9,8 @@ class Goal(object):
 class SleepGoal(Goal):
     """Base sleep goal"""
     def filter_history(self, history):
-        return [h for h in history if isinstance(h, SleepEvent)]
+        return sorted([h for h in history if isinstance(h, SleepEvent)],
+                       key=lambda x: x.start)
 
 
 class WakeTimeGoal(SleepGoal):
@@ -53,7 +54,8 @@ class SleepHoursGoal(SleepGoal):
 class FoodGoal(Goal):
     """Base food goal"""
     def filter_history(self, history):
-        return [h for h in history if isinstance(h, FoodEvent)]
+        return sorted([h for h in history if isinstance(h, FoodEvent)],
+                       key=lambda x: x.date)
 
 
 class CaloriesGoal(FoodGoal):
@@ -69,7 +71,7 @@ class CaloriesGoal(FoodGoal):
         food_history = self.filter_history(history)
         if len(food_history) < 7:
             raise ScoreError('Need at least 7 days of food history')
-        for food in food_history[-7]:
+        for food in food_history[-7:]:
             if food.calories <= self.calories:
                 points += 1
         return points
