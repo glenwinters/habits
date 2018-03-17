@@ -1,6 +1,7 @@
 from habits.goal import SleepGoal
 from habits.exceptions import ScoreError, GoalError
 
+
 class Person(object):
     def __init__(self, name):
         self.name = name
