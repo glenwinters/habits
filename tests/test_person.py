@@ -34,16 +34,6 @@ def person_with_history():
         FoodEvent(date(2018, 2, 24), 1802),
         FoodEvent(date(2018, 2, 25), 1799),
     ])
-    p.food_history.extend([
-        Food(date(2018, 2, 18), 2000),
-        Food(date(2018, 2, 19), 2146),
-        Food(date(2018, 2, 20), 1727),
-        Food(date(2018, 2, 21), 2075),
-        Food(date(2018, 2, 22), 3127),
-        Food(date(2018, 2, 23), 1996),
-        Food(date(2018, 2, 24), 1802),
-        Food(date(2018, 2, 25), 1799),
-    ])
     return p
 
 
